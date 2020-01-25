@@ -1,9 +1,12 @@
 {
   "name": "fnv-hash",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "FNV-1a non-cryptographic hash function with node-addon-api",
   "license": "MIT",
-  "repository": "jumballaya/fnv-hash",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jumballaya/fnv-hash.git"
+  },
   "author": {
     "name": "Patrick Burris",
     "url": "https://www.pburris.me"
@@ -19,16 +22,18 @@
   "scripts": {
     "test": "node-pre-gyp install --build-from-source install && ava && tsd",
     "preinstall": "npm install node-pre-gyp",
-    "install": "node-pre-gyp install --fallback-to-build"
+    "install": "node-pre-gyp install --fallback-to-build",
+    "publish:gyp": "node-pre-gyp-github publish --release"
   },
   "keywords": [],
   "devDependencies": {
     "ava": "^3.0.0",
+    "node-pre-gyp-github": "^1.4.3",
     "tsd": "^0.11.0"
   },
   "dependencies": {
-    "node-pre-gyp": "^0.14.0",
-    "node-addon-api": "^2.0.0"
+    "node-addon-api": "^2.0.0",
+    "node-pre-gyp": "^0.14.0"
   },
   "ava": {
     "files": [
@@ -41,8 +46,8 @@
   "binary": {
     "module_name": "fnv1a",
     "module_path": "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/",
-    "remote_path": "./{module_name}/v{version}/{configuration}/",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
-    "host": "https://github.com/jumballaya/fnv-hash/releases/download/"
+    "host": "https://github.com/jumballaya/fnv-hash/releases/download/",
+    "remote_path": "v{version}"
   }
 }
