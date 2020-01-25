@@ -1,3 +1,3 @@
 #include <string.h>
 
-unsigned long fnv1a_hash(const char *string);
+unsigned long fnv1a_hash(const char *string, int size);

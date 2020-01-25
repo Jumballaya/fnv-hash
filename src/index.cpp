@@ -8,8 +8,11 @@ Napi::String _fnv1a(const Napi::CallbackInfo& info) {
     // Get the first function parameter
     std::string plain = (std::string) info[0].ToString();
 
+    // Get the second function parameter
+    int size = (int) info[1].ToNumber();
+
     // Call the fnv1a hash function
-    unsigned long hashed = fnv1a_hash(plain.c_str());
+    unsigned long hashed = fnv1a_hash(plain.c_str(), size);
 
     // Convert the unsigned long into a hex string
     char buf[17];

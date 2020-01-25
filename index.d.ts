@@ -10,7 +10,7 @@ declare const fnv1a: {
 		//=> a430d84680aabd0b
 	```
 	*/
-	(string: string): string;
+	(string: string, size: number): string;
 
 };
 
