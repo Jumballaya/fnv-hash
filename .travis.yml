@@ -27,7 +27,7 @@ before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then c++ --version; fi;
     - npm install -g npm@latest
     
-install: true
+install: npm install
 
 script: npm test
 
