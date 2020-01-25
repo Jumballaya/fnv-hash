@@ -1,6 +1,6 @@
 {
   "name": "fnv-hash",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "FNV-1a non-cryptographic hash function with node-addon-api",
   "license": "MIT",
   "repository": {
@@ -23,7 +23,8 @@
     "test": "node-pre-gyp install --build-from-source install && ava && tsd",
     "preinstall": "npm install node-pre-gyp",
     "install": "node-pre-gyp install --fallback-to-build",
-    "publish:gyp": "node-pre-gyp-github publish --release"
+    "build": "node-pre-gyp package --release",
+    "publish:gyp": "npm run build && node-pre-gyp-github publish --release"
   },
   "keywords": [],
   "devDependencies": {
