@@ -23,8 +23,11 @@
     "test": "node-pre-gyp install --build-from-source install && ava && tsd",
     "preinstall": "npm install node-pre-gyp",
     "install": "node-pre-gyp install --fallback-to-build",
-    "build": "node-pre-gyp package --release",
-    "publish:gyp": "npm run build && node-pre-gyp-github publish --release"
+    "build": "node-pre-gyp configure && node-pre-gyp build && node-pre-gyp package --release",
+    "publish:gyp": "node-pre-gyp-github publish --release",
+    "publish:npm": "npm publish",
+    "publish:all": "npm run publish:gyp && npm run publish:npm",
+    "clean": "rm -rf ./build ./lib"
   },
   "keywords": [],
   "devDependencies": {
