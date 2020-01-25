@@ -17,8 +17,9 @@
     "index.d.ts"
   ],
   "scripts": {
-    "test": "npm run install && ava && tsd",
-    "install": "node-pre-gyp install --build-from-source"
+    "test": "node-pre-gyp install --build-from-source install && ava && tsd",
+    "preinstall": "npm install node-pre-gyp",
+    "install": "node-pre-gyp install --fallback-to-build"
   },
   "keywords": [],
   "devDependencies": {
@@ -39,12 +40,9 @@
   },
   "binary": {
     "module_name": "fnv1a",
-    "module_path": "./lib/binding/napi-v{napi_build_version}",
-    "package_name": "{module_name}-v{version}-napi-v{napi_build_version}-{platform}-{arch}-{libc}.tar.gz",
-    "host": "https://github.com/jumballaya/fnv-hash/releases/download/",
-    "remote_path": "v{version}",
-    "napi_versions": [
-      3
-    ]
+    "module_path": "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/",
+    "remote_path": "./{module_name}/v{version}/{configuration}/",
+    "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz",
+    "host": "https://github.com/jumballaya/fnv-hash/releases/download/"
   }
 }
