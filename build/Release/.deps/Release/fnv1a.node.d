@@ -1,1 +1,0 @@
-cmd_Release/fnv1a.node := c++ -bundle -undefined dynamic_lookup -Wl,-no_pie -Wl,-search_paths_first -mmacosx-version-min=10.7 -arch x86_64 -L./Release -stdlib=libc++  -o Release/fnv1a.node Release/obj.target/fnv1a/src/fnv1a.o Release/obj.target/fnv1a/src/index.o 
