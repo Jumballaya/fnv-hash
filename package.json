@@ -1,6 +1,6 @@
 {
   "name": "fnv-hash",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "FNV-1a non-cryptographic hash function with node-addon-api",
   "license": "MIT",
   "repository": "jumballaya/fnv-hash",
@@ -11,21 +11,25 @@
   "engines": {
     "node": ">=10"
   },
+  "main": "./index.js",
   "files": [
     "index.js",
     "index.d.ts"
   ],
   "scripts": {
-    "test": "npm run build && ava && tsd",
+    "test": "npm install --build-from-source && ava && tsd",
     "configure": "node-gyp configure",
     "build": "npm run configure && node-gyp build",
-    "start": "node index.js"
+    "install": "node-pre-gyp install --fallback-to-build"
   },
   "keywords": [],
   "devDependencies": {
     "ava": "^3.0.0",
-    "node-addon-api": "^2.0.0",
     "tsd": "^0.11.0"
+  },
+  "dependencies": {
+    "node-pre-gyp": "^0.14.0",
+    "node-addon-api": "^2.0.0"
   },
   "ava": {
     "files": [
@@ -33,6 +37,16 @@
     ],
     "source": [
       "index.js"
+    ]
+  },
+  "binary": {
+    "module_name": "fnv1a",
+    "module_path": "./lib/binding/napi-v{napi_build_version}",
+    "package_name": "{module_name}-v{version}-napi-v{napi_build_version}-{platform}-{arch}-{libc}.tar.gz",
+    "host": "https://github.com/jumballaya/fnv-hash/releases/download/",
+    "remote_path": "v{version}",
+    "napi_versions": [
+      3
     ]
   }
 }
