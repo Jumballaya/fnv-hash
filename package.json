@@ -1,0 +1,38 @@
+{
+  "name": "fnv-1a",
+  "version": "1.0.0",
+  "description": "FNV-1a non-cryptographic hash function with node-addon-api",
+  "license": "MIT",
+  "repository": "jumballaya/fnv-1a",
+  "author": {
+    "name": "Patrick Burris",
+    "url": "https://www.pburris.me"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "test": "npm run build && ava && tsd",
+    "configure": "node-gyp configure",
+    "build": "npm run configure && node-gyp build",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "ava": "^3.0.0",
+    "node-addon-api": "^2.0.0",
+    "tsd": "^0.11.0"
+  },
+  "ava": {
+    "files": [
+      "test.js"
+    ],
+    "source": [
+      "index.js"
+    ]
+  }
+}
