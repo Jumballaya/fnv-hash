@@ -1,9 +1,9 @@
 {
-  "name": "fnv-1a",
+  "name": "fnv-hash",
   "version": "1.0.0",
   "description": "FNV-1a non-cryptographic hash function with node-addon-api",
   "license": "MIT",
-  "repository": "jumballaya/fnv-1a",
+  "repository": "jumballaya/fnv-hash",
   "author": {
     "name": "Patrick Burris",
     "url": "https://www.pburris.me"
