@@ -1,6 +1,6 @@
 {
   "name": "fnv-hash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FNV-1a non-cryptographic hash function with node-addon-api",
   "license": "MIT",
   "repository": "jumballaya/fnv-hash",
