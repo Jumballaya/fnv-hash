@@ -6,6 +6,7 @@ env:
 os:
     - linux
     - osx
+    - windows
     
 node_js:
     - "10"
