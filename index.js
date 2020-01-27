@@ -10,4 +10,16 @@ function fnv1a(plain, size) {
     return fnv1aModule.fnv1a(plain, size);
 }
 
-module.exports = fnv1a;
+function fnv1a32(plain) {
+    return fnv1aModule.fnv1a32(plain);
+}
+
+function fnv1a64(plain) {
+    return fnv1aModule.fnv1a64(plain);
+}
+
+module.exports = {
+    fnv1a,
+    fnv1a32,
+    fnv1a64,
+};

@@ -19,8 +19,22 @@ const fnv1a = require('fnv-hash');
 
 ```
 
-Pass in your plaintext to hash and the byte-size (32 or 64 right now). The function defaults to 32bit
+Pass in your plaintext to hash and the byte-size (32 or 64 right now). There are 3 functions:
+
+Generic, pass the byte-size (defaults to 32)
 ```
-fnv1a('hello', 64);
+fnv1a.fnv1a('hello', 64);
+//=> 'a430d84680aabd0b'
+```
+
+Size: 32
+```
+fnv1a.fnv1a32('hello');
+//=> '4f9f2cab'
+```
+
+Size: 64
+```
+fnv1a.fnv1a64('hello');
 //=> 'a430d84680aabd0b'
 ```

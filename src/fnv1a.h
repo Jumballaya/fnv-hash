@@ -1,3 +1,7 @@
-#include <string.h>
+#pragma once
 
-unsigned long fnv1a_hash(const char *string, int size);
+#include <string.h>
+#include <cstdint>
+
+uint32_t fnv1a_hash_32(const char *string);
+uint64_t fnv1a_hash_64(const char *string);

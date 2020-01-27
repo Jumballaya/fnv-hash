@@ -1,5 +1,5 @@
 const test = require('ava');
-const fnv1a = require('.');
+const { fnv1a, fnv1a32, fnv1a64 } = require('.');
 
 
 const tests = [
@@ -28,18 +28,19 @@ const tests = [
 
 test('test 32-bit hash', t => {
     tests.forEach(tt => {
-        t.is(fnv1a(tt.text, 32), tt.expected[32]);
-    });
-});
-
-test('32-bits is the default', t => {
-    tests.forEach(tt => {
-        t.is(fnv1a(tt.text, 123), tt.expected[32]);
+        t.is(fnv1a32(tt.text), tt.expected[32]);
     });
 });
 
 test('test 64-bit hash', t => {
     tests.forEach(tt => {
-        t.is(fnv1a(tt.text, 64), tt.expected[64]);
+        t.is(fnv1a64(tt.text), tt.expected[64]);
+    });
+});
+
+test('test generic fnv1a function', t => {
+    tests.forEach(tt => {
+        const bit = ([32, 64, 123])[Math.floor(Math.random() * 3)];
+        t.is(fnv1a(tt.text, bit), tt.expected[bit === 123 ? 32 : bit]);
     });
 });
